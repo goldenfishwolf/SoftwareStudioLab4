@@ -1,5 +1,4 @@
 
-import java.awt.Color;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
@@ -10,7 +9,6 @@ import javax.swing.*;
 public class MyJPanel extends JPanel implements MouseMotionListener{
 	
 	private Square square = new Square(100);
-	private Color color;
 	private int centerX;
 	private int centerY;
 	
