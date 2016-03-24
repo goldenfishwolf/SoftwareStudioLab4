@@ -1,4 +1,5 @@
 
+import java.awt.Color;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
@@ -9,6 +10,7 @@ import javax.swing.*;
 public class MyJPanel extends JPanel implements MouseMotionListener{
 	
 	private Square square = new Square(100);
+	private Color color;
 	
 	public MyJPanel(){
 		addMouseMotionListener(this);
@@ -17,14 +19,15 @@ public class MyJPanel extends JPanel implements MouseMotionListener{
 		super.paintComponent(g);
 		// TODO Draw square and fill it with random color decided by method getRandomColor()
 		// You should use fillRect()
-		
+		this.color = square.getRandomColor();
+		g.fillRect(5, 5, 100, 100);
 	}
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		// TODO Get mouse dragged position and change suqare's position
-		centerX = e.getX();
-		centerY = e.getY();
+		centerX = square.getCenterX(e.getX());
+		centerY = square.getCenterY(e.getY());
 		repaint();
 	}
 
